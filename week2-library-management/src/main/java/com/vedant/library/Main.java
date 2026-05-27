@@ -12,6 +12,7 @@ public class Main {
                         1. Add Books
                         2. Register user
                         3. Borrow a Book
+                        4. Return a Book
                         4. Print the system state
                         0. Exit
                     """);
@@ -20,12 +21,9 @@ public class Main {
             switch (choice) {
                 case 1:
                     try {
-                        System.out.println("Enter book id: \t");
-                        int id = sc.nextInt();
-                        sc.nextLine();
                         System.out.println("Enter book title: \t");
                         String title = sc.nextLine();
-                        manager.addBook(new Book(id, title));
+                        manager.addBook(title);
                     } catch (BookAlreadyExists e) {
                         System.out.println("Exception occured : " + e.getMessage());
                     } catch (Exception e) {
@@ -34,14 +32,24 @@ public class Main {
                     break;
                 case 2:
                     try {
-                        manager.registerUser(new User(1, "Vedant"));
+                        System.out.println("Enter user name: \t");
+                        String name = sc.nextLine();
+                        manager.registerUser(name);
+                    } catch (UserAlreadyExists e) {
+                        System.out.println("Exception occured : " + e.getMessage());
                     } catch (Exception e) {
                         System.out.println("Exception occured : " + e.getMessage());
                     }
                     break;
                 case 3:
                     try {
-                        manager.borrowBook(1, 1);
+                        System.out.println("Enter user ID: \t");
+                        int userId = sc.nextInt();
+                        System.out.println("Enter book ID: \t");
+                        int bookId = sc.nextInt();
+                        manager.borrowBook(userId, bookId);
+                    } catch (BookAlreadyBorrowedException e) {
+                        System.out.println("Exception occured : " + e.getMessage());
                     } catch (Exception e) {
                         System.out.println("Exception occured : " + e.getMessage());
                     }
