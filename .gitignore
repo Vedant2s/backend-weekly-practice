@@ -1,8 +1,8 @@
 # Compiled output (IDE)
-out/
+./out
 
 # Maven build output
-target/
+movie-analytics-system/target
 
 # Logs
 *.log
