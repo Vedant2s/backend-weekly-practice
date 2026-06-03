@@ -1,8 +1,8 @@
 # Compiled output (IDE)
-out
+out/
 
-# Maven build output
-movie-analytics-system/target
+# Maven build output (IMPORTANT)
+target/
 
 # Logs
 *.log
@@ -10,6 +10,6 @@ movie-analytics-system/target
 # OS files
 .DS_Store
 
-# IDE files (optional)
+# IDE files
 .vscode/
 .idea/
