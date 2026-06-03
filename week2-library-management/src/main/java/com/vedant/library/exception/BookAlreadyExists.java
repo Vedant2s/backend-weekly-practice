@@ -1,3 +1,4 @@
+package com.vedant.library.exception;
 public class BookAlreadyExists extends Exception {
     // this was not Runtime exception bcause this is a user defined exception and we
     // want to force the user to handle it using try catch block

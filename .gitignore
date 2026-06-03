@@ -1,0 +1,15 @@
+# Compiled output (IDE)
+out/
+
+# Maven build output
+target/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# IDE files (optional)
+.vscode/
+.idea/

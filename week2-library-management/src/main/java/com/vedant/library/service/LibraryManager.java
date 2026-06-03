@@ -1,5 +1,6 @@
-import java.util.List;
-import java.util.Map;
+package com.vedant.library.service;
+
+import java.util.*;
 
 import com.vedant.library.exception.BookAlreadyBorrowedException;
 import com.vedant.library.exception.BookAlreadyExists;
@@ -71,17 +72,29 @@ public class LibraryManager {
 
     public void printSystemState() {
         System.out.println("Books in the library:");
-        for (Book book : books.values()) {
-            System.out
-                    .println("ID: " + book.getId() + ", Title: " + book.getTitle() + ", Available: " + book.getAvailable());
+        if (books.isEmpty()) {
+            System.out.println("No books in the library.");
+        } else
+            for (Book book : books.values()) {
+                System.out
+                        .println("ID: " + book.getId() + ", Title: " + book.getTitle() + ", Available: "
+                                + book.getAvailable());
+            }
+        if (users.isEmpty()) {
+            System.out.println("No users in the library.");
+        } else {
+            System.out.println("\nUsers in the library:");
+            for (User user : users.values()) {
+                System.out.println("ID: " + user.getId() + ", Name: " + user.getName());
+            }
         }
-        System.out.println("\nUsers in the library:");
-        for (User user : users.values()) {
-            System.out.println("ID: " + user.getId() + ", Name: " + user.getName());
-        }
-        System.out.println("\nBorrowed Books:");
-        for (Map.Entry<Integer, Integer> entry : borrowedBooks.entrySet()) {
-            System.out.println("Book ID: " + entry.getKey() + ", Borrowed by User ID: " + entry.getValue());
+        if (borrowedBooks.isEmpty()) {
+            System.out.println("\nNo books are currently borrowed.");
+        } else {
+            System.out.println("\nBorrowed Books:");
+            for (Map.Entry<Integer, Integer> entry : borrowedBooks.entrySet()) {
+                System.out.println("Book ID: " + entry.getKey() + ", Borrowed by User ID: " + entry.getValue());
+            }
         }
     }
 }
